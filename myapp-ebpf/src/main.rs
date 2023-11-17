@@ -2,6 +2,7 @@
 #![no_main]
 #![allow(nonstandard_style, dead_code)]
 
+// comment
 use aya_bpf::{
     bindings::xdp_action,
     macros::{map, xdp},
