@@ -20,7 +20,7 @@ use network_types::{
 fn panic(_info: &core::panic::PanicInfo) -> ! {
     unsafe { core::hint::unreachable_unchecked() }
 }
-
+// added comments. 
 #[map(name = "BLOCKLIST")] // 
 static mut BLOCKLIST: HashMap<u32, u32> =
     HashMap::<u32, u32>::with_max_entries(1024, 0);
@@ -62,7 +62,7 @@ fn try_xdp_firewall(ctx: XdpContext) -> Result<u32, ()> {
     let ipv4hdr: *const Ipv4Hdr = unsafe { ptr_at(&ctx, EthHdr::LEN)? };
     let source =  u32::from_be(unsafe { (*ipv4hdr).src_addr });
 
-    // let action = xdp_action::XDP_PASS;
+    let action = xdp_action::XDP_PASS;
     
     let action = if block_ip(source) {
         xdp_action::XDP_DROP
