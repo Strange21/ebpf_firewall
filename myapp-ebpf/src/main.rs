@@ -3,6 +3,7 @@
 #![allow(nonstandard_style, dead_code)]
 
 // comment
+// comment2
 use aya_bpf::{
     bindings::xdp_action,
     macros::{map, xdp},
